@@ -14,6 +14,10 @@
 		55863CBA23A1CEFF000D7D67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55863CB823A1CEFF000D7D67 /* LaunchScreen.storyboard */; };
 		55863CC523A1CEFF000D7D67 /* AudioRecoderAndPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55863CC423A1CEFF000D7D67 /* AudioRecoderAndPlayerTests.swift */; };
 		55863CD023A1CEFF000D7D67 /* AudioRecoderAndPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55863CCF23A1CEFF000D7D67 /* AudioRecoderAndPlayerUITests.swift */; };
+		55863CDE23A1DFEF000D7D67 /* Recorder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55863CDD23A1DFEF000D7D67 /* Recorder.storyboard */; };
+		55863CE023A1E000000D7D67 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55863CDF23A1E000000D7D67 /* Player.storyboard */; };
+		55863CE423A1E085000D7D67 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55863CE323A1E085000D7D67 /* RecorderViewController.swift */; };
+		55863CE623A1E0A8000D7D67 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55863CE523A1E0A8000D7D67 /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		55863CCB23A1CEFF000D7D67 /* AudioRecoderAndPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecoderAndPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55863CCF23A1CEFF000D7D67 /* AudioRecoderAndPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecoderAndPlayerUITests.swift; sourceTree = "<group>"; };
 		55863CD123A1CEFF000D7D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55863CDD23A1DFEF000D7D67 /* Recorder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recorder.storyboard; sourceTree = "<group>"; };
+		55863CDF23A1E000000D7D67 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		55863CE323A1E085000D7D67 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
+		55863CE523A1E0A8000D7D67 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,11 @@
 		55863CAE23A1CEFD000D7D67 /* AudioRecoderAndPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				55863CB323A1CEFD000D7D67 /* Main.storyboard */,
 				55863CAF23A1CEFD000D7D67 /* AppDelegate.swift */,
 				55863CB123A1CEFD000D7D67 /* ViewController.swift */,
-				55863CB323A1CEFD000D7D67 /* Main.storyboard */,
+				55863CE123A1E032000D7D67 /* Recorder */,
+				55863CE223A1E042000D7D67 /* Player */,
 				55863CB623A1CEFF000D7D67 /* Assets.xcassets */,
 				55863CB823A1CEFF000D7D67 /* LaunchScreen.storyboard */,
 				55863CBB23A1CEFF000D7D67 /* Info.plist */,
@@ -123,6 +133,24 @@
 				55863CD123A1CEFF000D7D67 /* Info.plist */,
 			);
 			path = AudioRecoderAndPlayerUITests;
+			sourceTree = "<group>";
+		};
+		55863CE123A1E032000D7D67 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				55863CDD23A1DFEF000D7D67 /* Recorder.storyboard */,
+				55863CE323A1E085000D7D67 /* RecorderViewController.swift */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		55863CE223A1E042000D7D67 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				55863CDF23A1E000000D7D67 /* Player.storyboard */,
+				55863CE523A1E0A8000D7D67 /* PlayerViewController.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +221,11 @@
 				TargetAttributes = {
 					55863CAB23A1CEFD000D7D67 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					55863CBF23A1CEFF000D7D67 = {
 						CreatedOnToolsVersion = 10.1;
@@ -229,7 +262,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55863CDE23A1DFEF000D7D67 /* Recorder.storyboard in Resources */,
 				55863CBA23A1CEFF000D7D67 /* LaunchScreen.storyboard in Resources */,
+				55863CE023A1E000000D7D67 /* Player.storyboard in Resources */,
 				55863CB723A1CEFF000D7D67 /* Assets.xcassets in Resources */,
 				55863CB523A1CEFD000D7D67 /* Main.storyboard in Resources */,
 			);
@@ -257,6 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55863CB223A1CEFD000D7D67 /* ViewController.swift in Sources */,
+				55863CE623A1E0A8000D7D67 /* PlayerViewController.swift in Sources */,
+				55863CE423A1E085000D7D67 /* RecorderViewController.swift in Sources */,
 				55863CB023A1CEFD000D7D67 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DKY9ZLYZ8K;
 				INFOPLIST_FILE = AudioRecoderAndPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DKY9ZLYZ8K;
 				INFOPLIST_FILE = AudioRecoderAndPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
