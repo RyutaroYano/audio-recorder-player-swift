@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rhB-D0-xwB">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rhB-D0-xwB">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-Wh-nKe">
-                                <rect key="frame" x="35.5" y="288.5" width="304" height="31"/>
+                                <rect key="frame" x="35.5" y="207" width="304" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Vna-7Y-jZV"/>
                                     <constraint firstAttribute="height" constant="30" id="mxa-S1-4e8"/>
@@ -29,7 +27,7 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="u2J-OT-l3h">
-                                <rect key="frame" x="107.5" y="468.5" width="160" height="30"/>
+                                <rect key="frame" x="107.5" y="387" width="160" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-a5-buO">
                                         <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
@@ -50,41 +48,37 @@
                                     <constraint firstAttribute="width" constant="160" id="Glv-aQ-yOZ"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="曲名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxM-ix-zJZ">
-                                <rect key="frame" x="170" y="178" width="35" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="曲名" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxM-ix-zJZ">
+                                <rect key="frame" x="10" y="94" width="355" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-9b-cnP">
-                                <rect key="frame" x="164.5" y="228.5" width="46" height="30"/>
-                                <state key="normal" title="曲選択"/>
-                                <connections>
-                                    <action selector="selectMusic:" destination="rhB-D0-xwB" eventType="touchUpInside" id="xLr-w1-n3A"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="再生速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfD-t1-dBl">
-                                <rect key="frame" x="153" y="528.5" width="69.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="再生速度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfD-t1-dBl">
+                                <rect key="frame" x="147.5" y="447" width="80" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="1zk-Nj-isp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-7Q-mA0">
-                                <rect key="frame" x="172" y="348.5" width="31" height="30"/>
+                                <rect key="frame" x="172" y="267" width="31" height="30"/>
                                 <state key="normal" title="再生"/>
                                 <connections>
                                     <action selector="playMusic:" destination="rhB-D0-xwB" eventType="touchUpInside" id="AtU-yK-20j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8U1-rM-in7">
-                                <rect key="frame" x="172" y="408.5" width="31" height="30"/>
+                                <rect key="frame" x="172" y="327" width="31" height="30"/>
                                 <state key="normal" title="停止"/>
                                 <connections>
                                     <action selector="stopMusic:" destination="rhB-D0-xwB" eventType="touchUpInside" id="po2-8r-N7x"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dcv-r4-ST0">
-                                <rect key="frame" x="35.5" y="579" width="304" height="31"/>
+                                <rect key="frame" x="35.5" y="497.5" width="304" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7Sv-zC-xBu"/>
                                     <constraint firstAttribute="width" constant="300" id="ELt-9d-usk"/>
@@ -93,25 +87,53 @@
                                     <action selector="changePlaySpeed:" destination="rhB-D0-xwB" eventType="valueChanged" id="xnH-gu-86t"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdJ-26-mes">
+                                <rect key="frame" x="172" y="557.5" width="31" height="30"/>
+                                <state key="normal" title="歌詞"/>
+                                <connections>
+                                    <segue destination="qnp-IS-E2H" kind="show" id="7RL-Lf-NC1"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FIl-L0-nCJ">
+                                <rect key="frame" x="108.5" y="144.5" width="158" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-9b-cnP">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="曲選択"/>
+                                        <connections>
+                                            <action selector="selectMusic:" destination="rhB-D0-xwB" eventType="touchUpInside" id="xLr-w1-n3A"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-8a-aVR">
+                                        <rect key="frame" x="66" y="0.0" width="92" height="30"/>
+                                        <state key="normal" title="プレイリスト"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oY2-7Q-mA0" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="2Ir-c9-ozk"/>
-                            <constraint firstItem="gKO-9b-cnP" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="6TI-Hq-JTO"/>
+                            <constraint firstItem="XxM-ix-zJZ" firstAttribute="leading" secondItem="quu-px-twZ" secondAttribute="leading" constant="10" id="550-ah-WI7"/>
+                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="centerX" secondItem="FIl-L0-nCJ" secondAttribute="centerX" id="6Uz-4E-K23"/>
+                            <constraint firstItem="FIl-L0-nCJ" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="70c-CK-iEU"/>
                             <constraint firstItem="Dcv-r4-ST0" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="DJ1-mL-TXf"/>
+                            <constraint firstItem="EdJ-26-mes" firstAttribute="top" secondItem="Dcv-r4-ST0" secondAttribute="bottom" constant="30" id="Do8-em-iyM"/>
                             <constraint firstItem="u2J-OT-l3h" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="DsS-ca-BN0"/>
                             <constraint firstItem="oY2-7Q-mA0" firstAttribute="top" secondItem="tjh-Wh-nKe" secondAttribute="bottom" constant="30" id="FEl-36-Rl6"/>
-                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="top" secondItem="gKO-9b-cnP" secondAttribute="bottom" constant="30" id="HiS-sO-bLZ"/>
+                            <constraint firstItem="quu-px-twZ" firstAttribute="trailing" secondItem="XxM-ix-zJZ" secondAttribute="trailing" constant="10" id="KfM-XY-vKr"/>
                             <constraint firstItem="8U1-rM-in7" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="KmS-Gn-mLg"/>
                             <constraint firstItem="8U1-rM-in7" firstAttribute="top" secondItem="oY2-7Q-mA0" secondAttribute="bottom" constant="30" id="RN7-Gx-rRt"/>
+                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="top" secondItem="FIl-L0-nCJ" secondAttribute="bottom" constant="32.5" id="SGF-cw-HKw"/>
                             <constraint firstItem="wfD-t1-dBl" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="iH5-fg-8d2"/>
                             <constraint firstItem="tjh-Wh-nKe" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="juH-Vx-7uv"/>
                             <constraint firstItem="XxM-ix-zJZ" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="m0X-JM-8EJ"/>
                             <constraint firstItem="u2J-OT-l3h" firstAttribute="top" secondItem="8U1-rM-in7" secondAttribute="bottom" constant="30" id="nm5-z7-GOj"/>
+                            <constraint firstItem="FIl-L0-nCJ" firstAttribute="top" secondItem="XxM-ix-zJZ" secondAttribute="bottom" constant="30" id="nnf-jK-ZDm"/>
                             <constraint firstItem="wfD-t1-dBl" firstAttribute="top" secondItem="u2J-OT-l3h" secondAttribute="bottom" constant="30" id="rOl-1c-l9c"/>
-                            <constraint firstItem="gKO-9b-cnP" firstAttribute="top" secondItem="XxM-ix-zJZ" secondAttribute="bottom" constant="30" id="wlx-Yf-NDb"/>
+                            <constraint firstItem="EdJ-26-mes" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="uQ2-fp-Vr9"/>
                             <constraint firstItem="Dcv-r4-ST0" firstAttribute="top" secondItem="wfD-t1-dBl" secondAttribute="bottom" constant="30" id="yWC-9v-5rv"/>
-                            <constraint firstItem="XxM-ix-zJZ" firstAttribute="top" secondItem="quu-px-twZ" secondAttribute="top" constant="114" id="zYg-Fp-8by"/>
+                            <constraint firstItem="XxM-ix-zJZ" firstAttribute="top" secondItem="quu-px-twZ" secondAttribute="top" constant="50" id="zYg-Fp-8by"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="quu-px-twZ"/>
                     </view>
@@ -127,6 +149,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7U-53-Kh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072.8" y="2.2488755622188905"/>
+        </scene>
+        <!--Lyric-->
+        <scene sceneID="wlF-mN-wPQ">
+            <objects>
+                <viewController id="qnp-IS-E2H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pl9-TE-RjG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwu-sR-eMj">
+                                <rect key="frame" x="16" y="98" width="343" height="501"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="DrL-zx-Ggm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="LwW-Tc-xLz"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="08L-bG-EEf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lyric" id="wJz-68-1VN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0D-wj-6by" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="6.746626686656672"/>
         </scene>
     </scenes>
 </document>
