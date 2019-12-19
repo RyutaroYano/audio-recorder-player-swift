@@ -230,7 +230,7 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             self.remotePrevTrack(commandEvent)
             return MPRemoteCommandHandlerStatus.success
         })
-        commandCenter.changePlaybackPositionCommand.isEnabled = true
+//        commandCenter.changePlaybackPositionCommand.isEnabled = true
 //        commandCenter.changePlaybackPositionCommand.addTarget{ [unowned self] commandEvent in
 //            self.changePlaybackPosition(commandEvent)
 //            return .success
@@ -241,12 +241,12 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
     func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
 
-        commandCenter.skipForwardCommand.preferredIntervals = [15.0]
-        commandCenter.skipForwardCommand.addTarget { [unowned self] event in
-            guard let event = event as? MPSkipIntervalCommandEvent else { return .commandFailed }
-            self.timeChange(second: event.interval)
-            return .success
-        }
+//        commandCenter.skipForwardCommand.preferredIntervals = [15.0]
+//        commandCenter.skipForwardCommand.addTarget { [unowned self] event in
+//            guard let event = event as? MPSkipIntervalCommandEvent else { return .commandFailed }
+//            self.timeChange(second: event.interval)
+//            return .success
+//        }
         
         // Scrubber
         commandCenter.changePlaybackPositionCommand.addTarget { [weak self](remoteEvent) -> MPRemoteCommandHandlerStatus in
@@ -323,5 +323,6 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
  ・バックグラウンドのスライダー
  ・歌詞を表示できるように　MPMediaItemCollection
  ・曲がなくても再生ボタンを押せるバグ
+ ・UI改善
  
  */
