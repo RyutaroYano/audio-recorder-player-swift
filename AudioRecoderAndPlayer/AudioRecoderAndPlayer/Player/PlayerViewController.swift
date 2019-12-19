@@ -116,9 +116,18 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
                     // (ここではエラーとして停止している）
                     fatalError("session有効化失敗")
                 }
-                
                 // 再生
                 player.play()
+                                
+                //これを追加する
+                var nowPlayingInfo = [String : Any]()
+                nowPlayingInfo[MPMediaItemPropertyTitle] = "title"  // シングル名
+                nowPlayingInfo[MPMediaItemPropertyArtist] = "artist"  // アーティスト名
+                //nowPlayingInfo[MPMediaItemPropertyArtwork] = "artwork"  // ジャケット (MPMediaItemArtwork)
+                nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration  // ミュージックの長さ
+                nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime  // ミュージックの再生時点
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
             }
         } else {
             // messageLabelに失敗したことを表示
@@ -230,11 +239,16 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             self.remotePrevTrack(commandEvent)
             return MPRemoteCommandHandlerStatus.success
         })
-//        commandCenter.changePlaybackPositionCommand.isEnabled = true
-//        commandCenter.changePlaybackPositionCommand.addTarget{ [unowned self] commandEvent in
-//            self.changePlaybackPosition(commandEvent)
-//            return .success
-//        }
+        commandCenter.changePlaybackPositionCommand.isEnabled = true
+        commandCenter.changePlaybackPositionCommand.addTarget{ [unowned self] commandEvent in
+            self.changePlaybackPosition(commandEvent)
+            return .success
+        }
+        commandCenter.changePlaybackRateCommand.isEnabled = true
+        commandCenter.changePlaybackRateCommand.addTarget{commandEvent in
+            return .success
+            
+        }
     }
     
     // Handle remote events
@@ -257,7 +271,7 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             }
             return .commandFailed
         }
-
+        commandCenter.changePlaybackPositionCommand.isEnabled = true
         // Register to receive events
         UIApplication.shared.beginReceivingRemoteControlEvents()
     }
