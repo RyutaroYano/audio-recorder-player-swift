@@ -18,6 +18,8 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
     //スライダーと曲を連動させるタイマー
     var timer = Timer()
 
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var musicNameLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var playbuckPositionSlider: UISlider!
@@ -99,6 +101,8 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
                 // sliderに合わせてrateを変更
                 player.rate = musicSpeedSlider.value * playbackSpeed
                 
+                totalTimeLabel.text = formatTimeString(d: player.duration)
+                
                 /// バックグラウンドでも再生できるセッションに設定する
                 let session = AVAudioSession.sharedInstance()
                 do {
@@ -119,6 +123,22 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
                 
                 // 再生
                 player.play()
+                
+                var nowPlayingInfo = [String : Any]()
+                // シングル名
+                nowPlayingInfo[MPMediaItemPropertyTitle] = item.title ?? ""
+                // アーティスト名
+                nowPlayingInfo[MPMediaItemPropertyArtist] = item.artist ?? ""
+                // ジャケット (MPMediaItemArtwork)
+//                nowPlayingInfo[MPMediaItemPropertyArtwork] = item.artwork ?? MPMediaItemPropertyArtwork
+
+                nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+                // ミュージックの長さ
+                nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration
+                // ミュージックの再生時点
+                nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
+
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
             }
         } else {
             // messageLabelに失敗したことを表示
@@ -127,6 +147,16 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             audioPlayer = nil
         }
         
+    }
+    
+    func formatTimeString(d: Double) -> String {
+        let s = d.truncatingRemainder(dividingBy: 60).rounded(.towardZero)
+        let sm = (d - s) / 60
+        let m = sm.truncatingRemainder(dividingBy: 60).rounded(.towardZero)
+        let mh = (d - m - s) / 3600
+        let h = mh.truncatingRemainder(dividingBy: 3600).rounded(.towardZero)
+        let str = String(format: "%02d:%02d:%02d", Int(h), Int(m), Int(s))
+        return str
     }
     
     //選択がキャンセルされた時に呼ばれるメソッド
@@ -204,6 +234,7 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
     @objc func timeCount() {
         if let player = audioPlayer {
             playbuckPositionSlider.value = Float(player.currentTime)
+            currentTimeLabel.text = formatTimeString(d: player.currentTime)
         }
     }
     
@@ -230,23 +261,30 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             self.remotePrevTrack(commandEvent)
             return MPRemoteCommandHandlerStatus.success
         })
-//        commandCenter.changePlaybackPositionCommand.isEnabled = true
-//        commandCenter.changePlaybackPositionCommand.addTarget{ [unowned self] commandEvent in
-//            self.changePlaybackPosition(commandEvent)
-//            return .success
-//        }
+        commandCenter.changePlaybackPositionCommand.isEnabled = true
+        commandCenter.changePlaybackPositionCommand.addTarget{
+//            [unowned self]
+            commandEvent in
+            self.changePlaybackPosition(commandEvent)
+            return .success
+        }
+        commandCenter.changePlaybackRateCommand.isEnabled = true
+        commandCenter.changePlaybackRateCommand.addTarget{commandEvent in
+            return .success
+
+        }
     }
     
     // Handle remote events
     func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
 
-//        commandCenter.skipForwardCommand.preferredIntervals = [15.0]
-//        commandCenter.skipForwardCommand.addTarget { [unowned self] event in
-//            guard let event = event as? MPSkipIntervalCommandEvent else { return .commandFailed }
-//            self.timeChange(second: event.interval)
-//            return .success
-//        }
+        commandCenter.skipForwardCommand.preferredIntervals = [15.0]
+        commandCenter.skipForwardCommand.addTarget { [unowned self] event in
+            guard let event = event as? MPSkipIntervalCommandEvent else { return .commandFailed }
+            self.timeChange(second: event.interval)
+            return .success
+        }
         
         // Scrubber
         commandCenter.changePlaybackPositionCommand.addTarget { [weak self](remoteEvent) -> MPRemoteCommandHandlerStatus in
@@ -257,6 +295,8 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
             }
             return .commandFailed
         }
+        
+        commandCenter.changePlaybackPositionCommand.isEnabled = true
 
         // Register to receive events
         UIApplication.shared.beginReceivingRemoteControlEvents()
@@ -306,7 +346,7 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
     }
     
     func timeChange(second time: Double) {
-        // time秒分時間を変更する
+        // time秒だけ時間を変更する
         if let player = audioPlayer {
             player.currentTime = player.currentTime + time
         }
@@ -323,6 +363,5 @@ class PlayerViewController: UIViewController, MPMediaPickerControllerDelegate {
  ・バックグラウンドのスライダー
  ・歌詞を表示できるように　MPMediaItemCollection
  ・曲がなくても再生ボタンを押せるバグ
- ・UI改善
  
  */

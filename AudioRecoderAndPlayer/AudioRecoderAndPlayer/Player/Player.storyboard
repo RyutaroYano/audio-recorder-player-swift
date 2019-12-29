@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdV-yb-y89">
+                                <rect key="frame" x="266" y="181.5" width="71.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-Wh-nKe">
                                 <rect key="frame" x="35.5" y="207" width="304" height="31"/>
                                 <constraints>
@@ -110,11 +116,18 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zs3-y3-bzH">
+                                <rect key="frame" x="37.5" y="181.5" width="71.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oY2-7Q-mA0" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="2Ir-c9-ozk"/>
                             <constraint firstItem="XxM-ix-zJZ" firstAttribute="leading" secondItem="quu-px-twZ" secondAttribute="leading" constant="10" id="550-ah-WI7"/>
+                            <constraint firstItem="mdV-yb-y89" firstAttribute="trailing" secondItem="tjh-Wh-nKe" secondAttribute="trailing" id="6LT-15-g3H"/>
                             <constraint firstItem="tjh-Wh-nKe" firstAttribute="centerX" secondItem="FIl-L0-nCJ" secondAttribute="centerX" id="6Uz-4E-K23"/>
                             <constraint firstItem="FIl-L0-nCJ" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="70c-CK-iEU"/>
                             <constraint firstItem="Dcv-r4-ST0" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="DJ1-mL-TXf"/>
@@ -125,6 +138,8 @@
                             <constraint firstItem="8U1-rM-in7" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="KmS-Gn-mLg"/>
                             <constraint firstItem="8U1-rM-in7" firstAttribute="top" secondItem="oY2-7Q-mA0" secondAttribute="bottom" constant="30" id="RN7-Gx-rRt"/>
                             <constraint firstItem="tjh-Wh-nKe" firstAttribute="top" secondItem="FIl-L0-nCJ" secondAttribute="bottom" constant="32.5" id="SGF-cw-HKw"/>
+                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="top" secondItem="Zs3-y3-bzH" secondAttribute="bottom" constant="5" id="Sgv-oE-A5w"/>
+                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="leading" secondItem="Zs3-y3-bzH" secondAttribute="leading" id="cw3-b8-Agb"/>
                             <constraint firstItem="wfD-t1-dBl" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="iH5-fg-8d2"/>
                             <constraint firstItem="tjh-Wh-nKe" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="juH-Vx-7uv"/>
                             <constraint firstItem="XxM-ix-zJZ" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="m0X-JM-8EJ"/>
@@ -132,6 +147,7 @@
                             <constraint firstItem="FIl-L0-nCJ" firstAttribute="top" secondItem="XxM-ix-zJZ" secondAttribute="bottom" constant="30" id="nnf-jK-ZDm"/>
                             <constraint firstItem="wfD-t1-dBl" firstAttribute="top" secondItem="u2J-OT-l3h" secondAttribute="bottom" constant="30" id="rOl-1c-l9c"/>
                             <constraint firstItem="EdJ-26-mes" firstAttribute="centerX" secondItem="dvk-LP-kc1" secondAttribute="centerX" id="uQ2-fp-Vr9"/>
+                            <constraint firstItem="tjh-Wh-nKe" firstAttribute="top" secondItem="mdV-yb-y89" secondAttribute="bottom" constant="5" id="xBH-OO-haC"/>
                             <constraint firstItem="Dcv-r4-ST0" firstAttribute="top" secondItem="wfD-t1-dBl" secondAttribute="bottom" constant="30" id="yWC-9v-5rv"/>
                             <constraint firstItem="XxM-ix-zJZ" firstAttribute="top" secondItem="quu-px-twZ" secondAttribute="top" constant="50" id="zYg-Fp-8by"/>
                         </constraints>
@@ -140,10 +156,12 @@
                     <navigationItem key="navigationItem" title="Player" id="bLg-xV-wbA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="currentTimeLabel" destination="Zs3-y3-bzH" id="4ZD-xu-rg2"/>
                         <outlet property="musicNameLabel" destination="XxM-ix-zJZ" id="Xjo-gn-1RA"/>
                         <outlet property="musicSpeedSlider" destination="Dcv-r4-ST0" id="EqY-Ov-RN5"/>
                         <outlet property="playButton" destination="oY2-7Q-mA0" id="QVg-0o-RYP"/>
                         <outlet property="playbuckPositionSlider" destination="tjh-Wh-nKe" id="K4R-rZ-dIc"/>
+                        <outlet property="totalTimeLabel" destination="mdV-yb-y89" id="qRY-Th-ZSq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7U-53-Kh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
